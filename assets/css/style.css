@@ -41,5 +41,15 @@ h3 {
 
 .grid-question-answer {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+#countdown {
+    display: flex;
+    color:#CE9178;
+    font-size: 300px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
