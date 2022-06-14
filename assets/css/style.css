@@ -33,6 +33,19 @@ h3 {
     color: var(--accentGreen);
 }
 
+button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: var(--light);
+    color: var(--dark);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
