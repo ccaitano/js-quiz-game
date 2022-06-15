@@ -51,8 +51,12 @@ startQuiz.addEventListener("click", function(){
     var nextQuestion = document.createElement("button");
     nextQuestion.textContent = "Next Question";
     nextQuestion.setAttribute("style", "display: flex; justify-content: center; font-size: 25px; font-family: courier; font-weight: bold; color: #1E1E1E; background-color: #D4D4D4; margin: auto; padding: 10px 20px; border-radius: 10px");
+
     var addButton = document.querySelector(".answers");
     addButton.appendChild(nextQuestion);
+    addButton.addEventListener("click", function (){
+        console.log("Next Question!");
+    })
 });
 
 //User picks answer
@@ -64,5 +68,12 @@ startQuiz.addEventListener("click", function(){
 //Add to total score
 
 //Click next question
-
+function navigate(direction) {
+    index = index + direction;
+    if (index < quizArray.length) { 
+      index++; 
+    } else {
+        return;
+    }
+  }
 
