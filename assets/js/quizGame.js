@@ -32,4 +32,14 @@ var quizArray = [
     }
 ];
 
-console.log(quizArray[1].question);
+var startQuiz = document.querySelector("#startButton");
+var questionEl = document.getElementById("displayQuestion");
+
+
+startQuiz.addEventListener("click", function(){
+    questionEl.textContent = quizArray[0].question;
+});
+
+
+
+console.log(questionEl);
