@@ -5,6 +5,7 @@
     --accentRed: #CE9178;
     --accentGreen: #B5CEA8;
     --accentYellow: #D7BA7D;
+    --accentDGreen: #6A9955;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -17,20 +18,14 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     font-weight: bolder;
-    color: var(--accentYellow);
+    color: var(--accentRed);
     font-size: 50px;
 }
 
 h2 {
     display: flex;
     justify-content: center;
-    color: var(--accentBlue);
-}
-
-h3 {
-    display: flex;
-    justify-content: center;
-    color: var(--accentGreen);
+    color: var(--accentDGreen);
 }
 
 button {
@@ -59,10 +54,16 @@ button {
 
 #countdown {
     display: flex;
-    color:#CE9178;
+    color: var(--accentGreen);
     font-size: 300px;
     font-weight: bolder;
     justify-content: center;
     align-items: center;
     margin: 0;
+}
+
+#HSLink {
+    display: flex;
+    justify-content: center;
+    color: var(--accentRed);
 }
