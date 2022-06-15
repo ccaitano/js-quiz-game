@@ -21,7 +21,7 @@ var quizArray = [
     {
         id: 1,
         question: "From the given array which index is the letter 'b' on? ['a', 'b', 'c', 'd']?",
-        answers: ["0", "1", "2","3","4"],
+        answers: ["0", "1", "2","3"],
         correctAnswer: "0"
     },
     {
@@ -34,12 +34,19 @@ var quizArray = [
 
 var startQuiz = document.querySelector("#startButton");
 var questionEl = document.getElementById("displayQuestion");
-
+var answer1El = document.getElementById("answer1");
+var answer2El = document.getElementById("answer2");
+var answer3El = document.getElementById("answer3");
+var answer4El = document.getElementById("answer4");
 
 startQuiz.addEventListener("click", function(){
-    questionEl.textContent = quizArray[0].question;
+    questionEl.textContent = quizArray[1].question;
+    answer1El.textContent = "A. " + quizArray[1].answers[0];
+    answer2El.textContent = "B. " + quizArray[1].answers[1];
+    answer3El.textContent = "C. " + quizArray[1].answers[2];
+    answer4El.textContent = "D. " + quizArray[1].answers[3];
 });
 
+console.log(quizArray[1].answers[0]);
 
 
-console.log(questionEl);
