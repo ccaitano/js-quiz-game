@@ -32,6 +32,7 @@ var quizArray = [
     }
 ];
 
+//Declare Variables
 var startQuiz = document.querySelector("#startButton");
 var questionEl = document.getElementById("displayQuestion");
 var answer1El = document.getElementById("answer1");
@@ -39,6 +40,7 @@ var answer2El = document.getElementById("answer2");
 var answer3El = document.getElementById("answer3");
 var answer4El = document.getElementById("answer4");
 
+//Click Start Quiz button to initiate question/answer sequence
 startQuiz.addEventListener("click", function(){
     questionEl.textContent = quizArray[1].question;
     answer1El.textContent = "A. " + quizArray[1].answers[0];
@@ -47,6 +49,14 @@ startQuiz.addEventListener("click", function(){
     answer4El.textContent = "D. " + quizArray[1].answers[3];
 });
 
-console.log(quizArray[1].answers[0]);
+//User picks answer
+
+//Validate user answer
+
+//Display whether answer was incorrect/correct
+
+//Add to total score
+
+//Click next question
 
 
