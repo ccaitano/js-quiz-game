@@ -1,18 +1,4 @@
 //Declare Countdown (numbers)
-//Declare Questions (array)
-// var questions = [
-//     {
-//         //question
-//         //answers
-//         //correct answer
-//     },
-//     {
-//         //question
-//         //answers
-//         //correct answer
-//     }
-// ];
-
 var timeEl = document.querySelector(".timer");
 var countdownEl = document.getElementById("countdown");
 
@@ -29,3 +15,21 @@ function setTime () {
 }
 
 setTime();
+
+// Declare Questions (array)
+var quizArray = [
+    {
+        id: 1,
+        question: "From the given array which index is the letter 'b' on? ['a', 'b', 'c', 'd']?",
+        answers: ["0", "1", "2","3","4"],
+        correctAnswer: "0"
+    },
+    {
+        id: 2,
+        question: "What are the two types of scope JavaScript uses?",
+        answers: ["Inner and Outer", "Main and Peripheral", "Global and Local", "Inclusive and Exclusive"],
+        correctAnswer: "Global and Local"
+    }
+];
+
+console.log(quizArray[1].question);
