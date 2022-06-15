@@ -47,6 +47,12 @@ startQuiz.addEventListener("click", function(){
     answer2El.textContent = "B. " + quizArray[1].answers[1];
     answer3El.textContent = "C. " + quizArray[1].answers[2];
     answer4El.textContent = "D. " + quizArray[1].answers[3];
+
+    var nextQuestion = document.createElement("button");
+    nextQuestion.textContent = "Next Question";
+    nextQuestion.setAttribute("style", "display: flex; justify-content: center; font-size: 25px; font-family: courier; font-weight: bold; color: #1E1E1E; background-color: #D4D4D4; margin: auto; padding: 10px 20px; border-radius: 10px");
+    var addButton = document.querySelector(".answers");
+    addButton.appendChild(nextQuestion);
 });
 
 //User picks answer
