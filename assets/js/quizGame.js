@@ -21,7 +21,16 @@ function setTime () {
 //End Quiz Function
 function gameOver () {
     console.log("Game Over");
-    qandaScreenEl.style.display = 'none';
+    qandaScreenEl.setAttribute('id', 'mainScreen');
+    qandaScreenEl.innerHTML = `<button id="startAgain">Restart Quiz</button>`;
+    var startAgainEl = document.getElementById("startAgain");
+    startAgainEl.addEventListener("click", startQuiz);        
+    logHighScore();
+}
+
+//Log High Score Function
+function logHighScore () {
+
 }
 
 // Declare Questions (array)
