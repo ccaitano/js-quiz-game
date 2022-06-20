@@ -42,12 +42,6 @@ h2 {
     border-radius: 10px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-}
-
 .grid-question-answer {
     display: grid;
     grid-template-rows: 1fr 2fr;
@@ -77,9 +71,9 @@ h2 {
 
 #displayQuestion {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     font-size: 30px;
-    color: var(--accentYellow);
+    color: var(--accentDBlue);
     margin: 5px 50px;
 }
 
@@ -96,6 +90,17 @@ h2 {
     border-radius: 10px;
     border-color: var(--light);
     width: 360px;
+}
+
+.displayAnswers:hover {
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+.displayAnswers:active {
+    color: var(--dark);
+    background-color: var(--accentYellow);
+    border-color: var(--accentYellow);
 }
 
 #HSLink {
