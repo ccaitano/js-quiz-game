@@ -66,6 +66,10 @@ input {
     border-radius: 10px;
 }
 
+#startButton:hover, #startAgain:hover, #highScore:hover {
+    background-color: var(--accentRed);
+}
+
 .grid-question-answer {
     display: grid;
     grid-template-rows: 1fr 2fr;
