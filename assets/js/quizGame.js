@@ -3,11 +3,11 @@ var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
 var highScoreLink = document.querySelector("#HSLink");
 var qandaScreenEl = document.getElementById("mainScreen");
-var questionNo = 0;
+var secondsLeft = 100;
+var questionNo = 1;
 
 //Timer Function
 function setTime () {
-    var secondsLeft = 100;
     var countdownEl = document.getElementById("countdown");
     var timerInterval = setInterval(function() {
         secondsLeft--;
@@ -92,6 +92,7 @@ function checkAnswer() {
         console.log("you chose right");
     } else {
         console.log("you chose wrong");
+        secondsLeft = secondsLeft - 5;
     }
 }
 
