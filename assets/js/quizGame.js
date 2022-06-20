@@ -15,7 +15,29 @@ function setTime () {
 }
 
 function startQuiz () {
-    console.log("Yippee!")
+    startQuizEl.style.display = 'none';
+    var qandaScreenEl = document.getElementById("mainScreen");
+    qandaScreenEl.setAttribute('id', 'mainScreen2');
+    qandaScreenEl.innerHTML =
+    `<div class="grid-question-answer">
+        <div class="questions">
+            <h2>//Question</h2>
+            <h3 id="displayQuestion">Test</h3>
+        </div>
+        <div class="answers">
+            <h2>//Answers</h2>
+            <button type="button" class="displayAnswers" id="answer1"></button>
+            <button type="button" class="displayAnswers" id="answer2"></button>
+            <button type="button" class="displayAnswers" id="answer3"></button>
+            <button type="button" class="displayAnswers" id="answer4"></button>
+        </div>
+    </div>   
+    <div class="timer">
+        <h2>//Timer</h2>
+        <p id="countdown"></p>
+    </div>`
+    ;  
+
 }
 
 

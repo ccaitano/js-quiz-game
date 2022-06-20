@@ -59,6 +59,12 @@ h2 {
     align-items: stretch;
 }
 
+#mainScreen2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
 #countdown {
     display: flex;
     color: var(--accentGreen);
@@ -96,4 +102,5 @@ h2 {
     display: flex;
     justify-content: center;
     color: var(--accentRed);
+    margin: 20px;
 }
