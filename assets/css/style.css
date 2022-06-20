@@ -6,6 +6,7 @@
     --accentGreen: #B5CEA8;
     --accentYellow: #D7BA7D;
     --accentDGreen: #6A9955;
+    --accentDBlue: #569CD6;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -18,7 +19,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     font-weight: bolder;
-    color: var(--accentRed);
+    color: var(--accentYellow);
     font-size: 50px;
 }
 
@@ -50,6 +51,12 @@ h2 {
 .grid-question-answer {
     display: grid;
     grid-template-rows: 1fr 2fr;
+}
+
+#mainScreen {
+    display: flex;
+    height: 70vh;
+    align-items: stretch;
 }
 
 #countdown {
