@@ -3,10 +3,10 @@ var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
 var highScoreLink = document.querySelector("#HSLink");
 var qandaScreenEl = document.getElementById("mainScreen");
-var secondsLeft = 5;
 
 //Timer Function
 function setTime () {
+    var secondsLeft = 5;
     var countdownEl = document.getElementById("countdown");
     var timerInterval = setInterval(function() {
         secondsLeft--;
@@ -21,11 +21,28 @@ function setTime () {
 //End Quiz Function
 function gameOver () {
     console.log("Game Over");
-    qandaScreenEl.setAttribute('id', 'mainScreen');
-    qandaScreenEl.innerHTML = `<button id="startAgain">Restart Quiz</button>`;
+    qandaScreenEl.setAttribute('id', 'mainScreen3');
+    qandaScreenEl.innerHTML = 
+        `<div>
+            <button id="startAgain">Restart Quiz</button>
+        </div>
+        <div>
+            <h2>//Your Score</h2>
+            <p>Score</p>
+        </div>
+        <div>
+            <form id="scorerName" method="POST">
+                <label for="scorerName">Enter Your Name: </label>
+                <input type="text" placeholder="Ex: Jane Doe" name="scorerName" id="scorerName" />
+            </form>
+        </div>
+        <div>
+            <button id="highScore">Log High Score</button>
+        </div>`;
     var startAgainEl = document.getElementById("startAgain");
-    startAgainEl.addEventListener("click", startQuiz);        
-    logHighScore();
+    var highscoreEl = document.getElementById("highScore");
+    startAgainEl.addEventListener("click", startQuiz);
+    highscoreEl.addEventListener("click", logHighScore);        
 }
 
 //Log High Score Function
