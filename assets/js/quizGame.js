@@ -2,7 +2,8 @@
 var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
 var highScoreLink = document.querySelector("#HSLink");
-var secondsLeft = 60;
+var qandaScreenEl = document.getElementById("mainScreen");
+var secondsLeft = 5;
 
 //Timer Function
 function setTime () {
@@ -12,8 +13,15 @@ function setTime () {
         countdownEl.textContent = secondsLeft;
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            gameOver();
         }
     }, 1000);
+}
+
+//End Quiz Function
+function gameOver () {
+    console.log("Game Over");
+    qandaScreenEl.style.display = 'none';
 }
 
 // Declare Questions (array)
@@ -32,11 +40,24 @@ var quizArray = [
     }
 ];
 
+function displayQuestions () {
+    var questionEl = document.getElementById("displayQuestion");
+    var answer1El = document.getElementById("answer1");
+    var answer2El = document.getElementById("answer2");
+    var answer3El = document.getElementById("answer3");
+    var answer4El = document.getElementById("answer4");
+    questionEl.textContent = quizArray[1].question;
+    answer1El.textContent = "A. " + quizArray[1].answers[0];
+    answer2El.textContent = "B. " + quizArray[1].answers[1];
+    answer3El.textContent = "C. " + quizArray[1].answers[2];
+    answer4El.textContent = "D. " + quizArray[1].answers[3];
+}
+
 function startQuiz () {
     //Declare variables
-    var qandaScreenEl = document.getElementById("mainScreen");
+    // var qandaScreenEl = document.getElementById("mainScreen");
 
-    //Remove 'Begin Quiz' Button
+    //Remove 'Begin Quiz' Button and High Score Link
     startQuizEl.style.display = 'none';
     highScoreLink.style.display = 'none';
     //Create quiz screen display - Question, Answers and Timer
@@ -62,17 +83,10 @@ function startQuiz () {
     ;  
     //Start Timer
     setTime();
+    displayQuestions();
 
-    var questionEl = document.getElementById("displayQuestion");
-    var answer1El = document.getElementById("answer1");
-    var answer2El = document.getElementById("answer2");
-    var answer3El = document.getElementById("answer3");
-    var answer4El = document.getElementById("answer4");
-    questionEl.textContent = quizArray[1].question;
-    answer1El.textContent = "A. " + quizArray[1].answers[0];
-    answer2El.textContent = "B. " + quizArray[1].answers[1];
-    answer3El.textContent = "C. " + quizArray[1].answers[2];
-    answer4El.textContent = "D. " + quizArray[1].answers[3];
+    // startQuizEl.addEventListener("click", checkAnswer);
+
 
     // var nextQuestion = document.createElement("button");
     // nextQuestion.textContent = "Next Question";
