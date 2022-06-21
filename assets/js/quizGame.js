@@ -60,16 +60,13 @@ function gameOver () {
 //Log High Score Function
 function logHighScore (userScore) {
     var userInitials = document.querySelector("#scorerName").value;
-    var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
-    if (storedHighScores !== null) {
-        highScores = storedHighScores;
-      }
+    // var storedHighScoreInitials = JSON.parse(localStorage.getItem("highScoreInitials"))
+    // var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
     if (userInitials === "") {
         alert("Please Enter Your Initials")
     }
     localStorage.setItem("userScore", JSON.stringify(userScore));
     localStorage.setItem("userInitials", JSON.stringify(userInitials));
-
     highScores.push(userScore);
     highScoreInitials.push(userInitials);
     localStorage.setItem("highScores", JSON.stringify(highScores));
@@ -90,13 +87,16 @@ function logHighScore (userScore) {
         <button id="clearScores">Clear Scores</button>
     </section>`
     ;  
-    var newHSRow = document.createElement("tr");
     for(i=0; i<highScores.length; i++) {
+        var newHSRow = document.createElement("tr");
         newHSRow.innerHTML =
-            `<td>${userInitials}</td>   
-            <td>${userScore}</td>`;
+            `<td>${highScoreInitials[i]}</td>   
+            <td>${highScores[i]}</td>`;
         highScoreTable.appendChild(newHSRow);
+        console.log("yes");
     }
+    var startAgainEl = document.getElementById("startAgain");    
+    startAgainEl.addEventListener("click", startQuiz);
 }
 
 // Declare Questions (array)
@@ -158,7 +158,7 @@ function nextQuestion () {
 
 function startQuiz () {
     questionNo = 0;
-
+    correctAnswer = 0;
     //Remove 'Begin Quiz' Button and High Score Link
     startQuizEl.style.display = 'none';
     highScoreLink.style.display = 'none';
