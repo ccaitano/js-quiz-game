@@ -24,10 +24,8 @@ function setTime () {
 
 //End Quiz Function
 function gameOver () {
-    console.log("Game Over");
     qandaScreenEl.setAttribute('id', 'mainScreen3');
     var userScore = (correctAnswer*10);
-    console.log(userScore); 
     qandaScreenEl.innerHTML = 
         `<div>
             <button id="startAgain">Restart Quiz</button>
@@ -38,7 +36,7 @@ function gameOver () {
             <p id="score">${userScore}/100</p>
         </div>
         <div>
-            <form id="scorerName" method="POST">
+            <form id="scorerInfo" method="POST">
                 <label for="scorerName">Enter Your Initials: </label>
                 <input type="text" placeholder="Ex: JD" name="scorerName" id="scorerName" />
             </form>
@@ -48,13 +46,21 @@ function gameOver () {
         </div>`;
     var startAgainEl = document.getElementById("startAgain");
     var highscoreEl = document.getElementById("highScore");
+    // var userInitials = document.getElementById("scorerName").value;
     startAgainEl.addEventListener("click", startQuiz);
-    highscoreEl.addEventListener("click", logHighScore);        
+    highscoreEl.addEventListener("click", function(event) {
+        event.preventDefault();
+        logHighScore(userScore);
+    });  
+          
 }
 
 //Log High Score Function
-function logHighScore () {
-    console.log("Log High Score")
+function logHighScore (userScore, userInitials) {
+    var userInitials = document.getElementById("scorerName").value;
+    console.log(userInitials);
+    localStorage.setItem("userScore", JSON.stringify(userScore));
+    localStorage.setItem("userInitials", JSON.stringify(userInitials));
 }
 
 // Declare Questions (array)
