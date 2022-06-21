@@ -97,8 +97,25 @@ function logHighScore (userScore) {
     }
     var startAgainEl = document.getElementById("startAgain");    
     startAgainEl.addEventListener("click", startQuiz);
+
+    var clearHSEl = document.getElementById("clearScores");    
+    clearHSEl.addEventListener("click", clearScores);
 }
 
+function clearScores() {
+    highScores = [];
+    highScoreInitials = [];
+    qandaScreenEl.setAttribute('id', 'highScoreScreen');
+    qandaScreenEl.innerHTML =
+    `<h1>High Scores</h1>
+    <h2>No Scores to Display</h2>
+    <section>
+        <button id="startAgain">Restart Quiz</button>
+    </section>`
+    ;  
+    var startAgainEl = document.getElementById("startAgain");    
+    startAgainEl.addEventListener("click", startQuiz);
+}
 // Declare Questions (array)
 var quizArray = [
     {

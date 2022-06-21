@@ -64,7 +64,7 @@ input {
     border-radius: 10px;
 }
 
-#startButton:hover, #startAgain:hover, #highScore:hover {
+#startButton:hover, #startAgain:hover, #highScore:hover, #clearScores:hover {
     background-color: var(--accentRed);
 }
 
