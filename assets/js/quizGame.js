@@ -4,7 +4,9 @@ var startQuizEl = document.querySelector("#startButton");
 var highScoreLink = document.querySelector("#HSLink");
 var qandaScreenEl = document.getElementById("mainScreen");
 var secondsLeft = 100;
-var questionNo = 1;
+var questionNo = 0;
+var correctAnswer = 0;
+var incorrectAnswer = 0;
 
 //Timer Function
 function setTime () {
@@ -87,12 +89,24 @@ function displayQuestions (questionNo) {
 
 function checkAnswer() {
     var selectedAnswer = this.dataset.answer;
-    console.log(selectedAnswer);
     if (quizArray[questionNo].answers[selectedAnswer] == quizArray[questionNo].correctAnswer) {
         console.log("you chose right");
+        correctAnswer++;
     } else {
         console.log("you chose wrong");
         secondsLeft = secondsLeft - 5;
+        incorrectAnswer++;
+    }
+    questionNo++;
+    nextQuestion();
+}
+
+function nextQuestion () {
+    console.log("Next Question: " + questionNo);
+    if (questionNo < quizArray.length) {
+        displayQuestions(questionNo);
+    } else {
+        gameOver();
     }
 }
 
