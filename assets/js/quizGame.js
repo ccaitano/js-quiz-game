@@ -46,21 +46,46 @@ function gameOver () {
         </div>`;
     var startAgainEl = document.getElementById("startAgain");
     var highscoreEl = document.getElementById("highScore");
-    // var userInitials = document.getElementById("scorerName").value;
+    
     startAgainEl.addEventListener("click", startQuiz);
     highscoreEl.addEventListener("click", function(event) {
         event.preventDefault();
         logHighScore(userScore);
-    });  
+        });  
           
 }
 
 //Log High Score Function
-function logHighScore (userScore, userInitials) {
-    var userInitials = document.getElementById("scorerName").value;
+function logHighScore (userScore) {
+    var userInitials = document.querySelector("#scorerName").value;
+    var highScores = [];
     console.log(userInitials);
+    if (userInitials === "") {
+        alert("Please Enter Your Initials")
+    }
     localStorage.setItem("userScore", JSON.stringify(userScore));
     localStorage.setItem("userInitials", JSON.stringify(userInitials));
+    qandaScreenEl.setAttribute('id', 'highScoreScreen');
+    qandaScreenEl.innerHTML =
+    `<h1>High Scores</h1>
+    <section id="highScoreMain">
+        <table id="highScoreTable">
+            <tr>
+                <th>User Initials</th>
+                <th>Score</th>
+            </tr>
+        </table> 
+    </section>
+    <section>
+        <button id="startAgain">Restart Quiz</button>
+        <button id="clearScores">Clear Scores</button>
+    </section>`
+    ;  
+    var newHSRow = document.createElement("tr");
+    newHSRow.innerHTML =
+        `<td>${userInitials}</td>   
+         <td>${userScore}</td>`;
+    highScoreTable.appendChild(newHSRow);
 }
 
 // Declare Questions (array)
@@ -152,17 +177,6 @@ function startQuiz () {
 
     displayQuestions(questionNo);
 
-
-    // var nextQuestion = document.createElement("button");
-    // nextQuestion.textContent = "Next Question";
-    // nextQuestion.setAttribute("style", "display: flex; justify-content: center; font-size: 25px; font-family: courier; font-weight: bold; color: #1E1E1E; background-color: #D4D4D4; margin: auto; padding: 10px 20px; border-radius: 10px");
-
-    // var addButton = document.querySelector(".answers");
-    // addButton.appendChild(nextQuestion);
-    // addButton.addEventListener("click", function (){
-    //     console.log("Next Question!");
-    // });
-
 }
 
 startQuizEl.addEventListener("click", startQuiz);
@@ -174,14 +188,4 @@ startQuizEl.addEventListener("click", startQuiz);
 //Display whether answer was incorrect/correct
 
 //Add to total score
-
-//Click next question
-function navigate(direction) {
-    index = index + direction;
-    if (index < quizArray.length) { 
-      index++; 
-    } else {
-        return;
-    }
-  }
 

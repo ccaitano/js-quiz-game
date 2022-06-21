@@ -28,9 +28,7 @@ h2 {
     justify-content: center;
     color: var(--accentDGreen);
 }
-h3 {
 
-}
 label {
     font-size: 30px;
     color: var(--accentDBlue);
@@ -53,7 +51,7 @@ input {
 
 }
 
-#startButton, #startAgain, #highScore {
+#startButton, #startAgain, #highScore, #clearScores {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -152,4 +150,20 @@ input {
     font-size: 150px;
     font-weight: bolder;
     margin: 10px auto;
+}
+
+#highScoreMain {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}
+
+#highScoreTable, tr {
+    border-color: var(--accentGreen);
+    border-collapse: collapse;
+    color: var(--accentDBlue);
+}
+
+td {
+    color: var(--accentBlue);
 }
