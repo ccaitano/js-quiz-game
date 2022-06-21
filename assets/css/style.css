@@ -129,7 +129,7 @@ input {
     background-color: var(--light);
 }
 
-.displayAnswers:active {
+.displayAnswers:active .displayAnswers:focus {
     color: var(--dark);
     background-color: var(--accentYellow);
     border-color: var(--accentYellow);

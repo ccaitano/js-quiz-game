@@ -3,7 +3,7 @@ var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
 var highScoreLink = document.querySelector("#HSLink");
 var qandaScreenEl = document.getElementById("mainScreen");
-var secondsLeft = 100;
+var secondsLeft = 60;
 var questionNo = 0;
 var correctAnswer = 0;
 var incorrectAnswer = 0;
@@ -13,7 +13,7 @@ var highScoreInitials = [];
 //Timer Function
 function setTime () {
     var countdownEl = document.getElementById("countdown");
-    secondsLeft = 100;
+    secondsLeft = 60;
     var timerInterval = setInterval(function() {
         secondsLeft--;
         countdownEl.textContent = secondsLeft;
@@ -122,7 +122,7 @@ function clearScores() {
 var quizArray = [
     {
         id: 1,
-        question: "From the given array which index is the letter 'b' on? ['a', 'b', 'c', 'd']?",
+        question: "From the given array which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
         answers: ["0", "1", "2","3"],
         correctAnswer: "1"
     },
@@ -131,6 +131,54 @@ var quizArray = [
         question: "What are the two types of scope JavaScript uses?",
         answers: ["Inner and Outer", "Main and Peripheral", "Global and Local", "Inclusive and Exclusive"],
         correctAnswer: "Global and Local"
+    },
+    {
+        id: 3,
+        question: "Which of the following is NOT a valid data type?",
+        answers: ["Boolean", "Number", "String", "Alphabet"],
+        correctAnswer: "Alphabet"
+    },
+    {
+        id: 4,
+        question: "Which of the following methods add an item to an array?",
+        answers: [".splice()", ".push()", ".addto()", ".plus()"],
+        correctAnswer: ".push()"
+    },
+    {
+        id: 5,
+        question: "Which HTML element contains the JavaScript file?",
+        answers: ["<script>", "<link>", "<section>", "<footer>"],
+        correctAnswer: "<script>"
+    },
+    {
+        id: 6,
+        question: "Which operator is used to assign a value to a variable?",
+        answers: ["-->", "=", "~", "#"],
+        correctAnswer: "="
+    },
+    {
+        id: 7,
+        question: "Which of the following methods will write 'Hello' to the console?",
+        answers: ["console.log('Hello')", "print('Hello')", "console.print('Hello')","log('Hello')"],
+        correctAnswer: "console.log('Hello')"
+    },
+    {
+        id: 8,
+        question: "How would you add a comment in JavaScript",
+        answers: ["(This is a Comment)", "'This is a Comment'", "//This is a Comment","**This is a Comment**"],
+        correctAnswer: "//This is a Comment"
+    },
+    {
+        id: 9,
+        question: "What is the correct way to write a JavaScript array?",
+        answers: ["var pets = 'dog', 'cat', 'bird'", "var pets = (dog, cat, bird)", "var pets = 1:dog, 2:cat, 3:bird","var pets = ['dog', 'cat', 'bird]"],
+        correctAnswer: "var pets = ['dog', 'cat', 'bird]"
+    },
+    {
+        id: 10,
+        question: "What type of variable is 'false'?",
+        answers: ["Negative", "Boolean", "Truthy","undefined"],
+        correctAnswer: "Boolean"
     }
 ];
 
