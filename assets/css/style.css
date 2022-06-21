@@ -158,8 +158,8 @@ input {
     margin: 50px auto;
 }
 
-#highScoreTable, tr {
-    border-color: var(--accentGreen);
+#highScoreTable, tr, td, th {
+    border: 1px solid var(--accentGreen);
     border-collapse: collapse;
     color: var(--accentDBlue);
 }

@@ -7,6 +7,8 @@ var secondsLeft = 100;
 var questionNo = 0;
 var correctAnswer = 0;
 var incorrectAnswer = 0;
+var highScores = [];
+var highScoreInitials = [];
 
 //Timer Function
 function setTime () {
@@ -58,13 +60,20 @@ function gameOver () {
 //Log High Score Function
 function logHighScore (userScore) {
     var userInitials = document.querySelector("#scorerName").value;
-    var highScores = [];
-    console.log(userInitials);
+    var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
+    if (storedHighScores !== null) {
+        highScores = storedHighScores;
+      }
     if (userInitials === "") {
         alert("Please Enter Your Initials")
     }
     localStorage.setItem("userScore", JSON.stringify(userScore));
     localStorage.setItem("userInitials", JSON.stringify(userInitials));
+
+    highScores.push(userScore);
+    highScoreInitials.push(userInitials);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    localStorage.setItem("highScoreInitials", JSON.stringify(highScoreInitials));
     qandaScreenEl.setAttribute('id', 'highScoreScreen');
     qandaScreenEl.innerHTML =
     `<h1>High Scores</h1>
@@ -82,10 +91,12 @@ function logHighScore (userScore) {
     </section>`
     ;  
     var newHSRow = document.createElement("tr");
-    newHSRow.innerHTML =
-        `<td>${userInitials}</td>   
-         <td>${userScore}</td>`;
-    highScoreTable.appendChild(newHSRow);
+    for(i=0; i<highScores.length; i++) {
+        newHSRow.innerHTML =
+            `<td>${userInitials}</td>   
+            <td>${userScore}</td>`;
+        highScoreTable.appendChild(newHSRow);
+    }
 }
 
 // Declare Questions (array)
