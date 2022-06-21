@@ -63,7 +63,9 @@ function logHighScore (userScore) {
     // var storedHighScoreInitials = JSON.parse(localStorage.getItem("highScoreInitials"))
     // var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
     if (userInitials === "") {
-        alert("Please Enter Your Initials")
+        alert("Please Enter Your Initials");
+        gameOver();
+        return;
     }
     localStorage.setItem("userScore", JSON.stringify(userScore));
     localStorage.setItem("userInitials", JSON.stringify(userInitials));
@@ -151,18 +153,19 @@ function displayQuestions (questionNo) {
 }
 
 function checkAnswer() {
-    var selectedAnswer = this.dataset.answer;
-    if (quizArray[questionNo].answers[selectedAnswer] == quizArray[questionNo].correctAnswer) {
-        console.log("you chose right");
+    var selectedAnswer = this;
+    if (quizArray[questionNo].answers[selectedAnswer.dataset.answer] == quizArray[questionNo].correctAnswer) {
+        selectedAnswer.textContent = "CORRECT!";
         correctAnswer++;
     } else {
-        console.log("you chose wrong");
         secondsLeft = secondsLeft - 5;
-        incorrectAnswer++;
+        selectedAnswer.textContent = "INCORRECT";
     }
     questionNo++;
-    nextQuestion();
+    setTimeout(nextQuestion, 2000);
+    
 }
+
 
 function nextQuestion () {
     console.log("Next Question: " + questionNo);

@@ -135,6 +135,18 @@ input {
     border-color: var(--accentYellow);
 }
 
+#displayCorrectAnswer:focus {
+    color: var(--dark);
+    background-color: var(--accentGreen);
+    border-color: var(--accentDGreen);
+}
+
+#displayInorrectAnswer:focus {
+    color: var(--dark);
+    background-color: var(--accentRed);
+    border-color: var(--accentRed);
+}
+
 #HSLink {
     display: flex;
     justify-content: center;
