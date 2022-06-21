@@ -143,3 +143,13 @@ input {
     color: var(--accentRed);
     margin: 20px;
 }
+
+#score {
+    display: flex;
+    justify-content: center;
+    color: var(--accentGreen);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 150px;
+    font-weight: bolder;
+    margin: 10px auto;
+}

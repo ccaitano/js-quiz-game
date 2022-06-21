@@ -11,6 +11,7 @@ var incorrectAnswer = 0;
 //Timer Function
 function setTime () {
     var countdownEl = document.getElementById("countdown");
+    secondsLeft = 100;
     var timerInterval = setInterval(function() {
         secondsLeft--;
         countdownEl.textContent = secondsLeft;
@@ -25,6 +26,8 @@ function setTime () {
 function gameOver () {
     console.log("Game Over");
     qandaScreenEl.setAttribute('id', 'mainScreen3');
+    var userScore = (correctAnswer*10);
+    console.log(userScore); 
     qandaScreenEl.innerHTML = 
         `<div>
             <button id="startAgain">Restart Quiz</button>
@@ -32,11 +35,12 @@ function gameOver () {
         <div>
             <h2>//Your Score</h2>
             <p>Score</p>
+            <p id="score">${userScore}/100</p>
         </div>
         <div>
             <form id="scorerName" method="POST">
-                <label for="scorerName">Enter Your Name: </label>
-                <input type="text" placeholder="Ex: Jane Doe" name="scorerName" id="scorerName" />
+                <label for="scorerName">Enter Your Initials: </label>
+                <input type="text" placeholder="Ex: JD" name="scorerName" id="scorerName" />
             </form>
         </div>
         <div>
@@ -111,8 +115,7 @@ function nextQuestion () {
 }
 
 function startQuiz () {
-    //Declare variables
-    // var qandaScreenEl = document.getElementById("mainScreen");
+    questionNo = 0;
 
     //Remove 'Begin Quiz' Button and High Score Link
     startQuizEl.style.display = 'none';
