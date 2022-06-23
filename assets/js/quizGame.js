@@ -1,7 +1,7 @@
 //Declare Countdown (numbers)
 var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
-var highScoresEl = document.getElementById("HSLink");
+var highScoresEl = document.getElementById("scoreButton");
 var qandaScreenEl = document.getElementById("mainScreen");
 var secondsLeft = 60;
 var questionNo = 0;
@@ -88,10 +88,10 @@ function displayHighScore () {
             </tr>
         </table> 
     </section>
-    <section>
+    <div id="hsButtons">
         <button id="startAgain">Start Quiz</button>
         <button id="clearScores">Clear Scores</button>
-    </section>`
+    </div>`
     ;  
     highScoresEl.style.display = 'none';
     for(i=0; i<highScores.length; i++) {
@@ -215,7 +215,7 @@ function checkAnswer() {
         selectedAnswer.textContent = "INCORRECT";
     }
     questionNo++;
-    setTimeout(nextQuestion, 2000);
+    setTimeout(nextQuestion, 1000);
     
 }
 

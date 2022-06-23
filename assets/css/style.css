@@ -51,7 +51,7 @@ input {
 
 }
 
-#startButton, #startAgain, #highScore, #clearScores {
+#startButton, #startAgain, #highScore, #clearScores, #scoreButton {
     display: flex;
     justify-content: center;
     margin: auto;
@@ -64,6 +64,24 @@ input {
     border-radius: 10px;
 }
 
+#scoreButton {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: var(--dark);
+    color: var(--accentGreen);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-color: var(--light);
+}
+
+#scoreButton:hover {
+    background-color: var(--accentGreen);
+    color: var(--dark);
+}
 #startButton:hover, #startAgain:hover, #highScore:hover, #clearScores:hover {
     background-color: var(--accentRed);
 }
@@ -147,10 +165,9 @@ input {
     border-color: var(--accentRed);
 }
 
-#HSLink {
+#hsButtons {
     display: flex;
     justify-content: center;
-    color: var(--accentRed);
     margin: 20px;
 }
 
@@ -174,9 +191,11 @@ input {
     border: 1px solid var(--accentGreen);
     border-collapse: collapse;
     color: var(--accentDBlue);
+    font-size: 20px;
     padding: 20px;
 }
 
 td {
     color: var(--accentBlue);
+    text-align: center;
 }
