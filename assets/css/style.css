@@ -41,7 +41,7 @@ input {
     height: 50px;
     width: 100%;
     padding: 5px 10px;
-    margin: 10px 10px 30px;
+    margin: 10px;
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
     border: 1px solid var(--accentYellow);
@@ -124,8 +124,7 @@ input {
     font-size: 300px;
     font-weight: bolder;
     justify-content: center;
-    align-items: center;
-    margin: 0;
+    margin: 75px;
 }
 
 /* Question Styling */
@@ -173,7 +172,7 @@ input {
     font-family: 'Courier New', Courier, monospace;
     font-size: 150px;
     font-weight: bolder;
-    margin: 10px auto;
+    margin: 0px auto 10px;
 }
 
 #highScoreMain {

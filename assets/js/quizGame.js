@@ -31,12 +31,11 @@ function gameOver () {
     //Reset screen to display score and enter initials
     qandaScreenEl.setAttribute('id', 'mainScreen3');
     qandaScreenEl.innerHTML = 
-        `<div>
+        `<div style="display: flex; align-items: center;">
             <button class = "buttons" id="startAgain">Restart Quiz</button>
         </div>
         <div>
             <h2>//Your Score</h2>
-            <p>Score</p>
             <p id="score">${userScore}/100</p>
         </div>
         <div>
