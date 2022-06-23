@@ -235,7 +235,7 @@ function checkAnswer() {
 
 //Displays next question in quiz array
 function nextQuestion () {
-    if (questionNo < quizArray.length) {
+    if (questionNo < quizArray.length && secondsLeft > 0) {
         displayQuestions(questionNo);
     } else {
         gameOver();
