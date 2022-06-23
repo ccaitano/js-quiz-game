@@ -30,7 +30,7 @@ function gameOver () {
     var userScore = (correctAnswer*10);
     qandaScreenEl.innerHTML = 
         `<div>
-            <button id="startAgain">Restart Quiz</button>
+            <button class = "buttons" id="startAgain">Restart Quiz</button>
         </div>
         <div>
             <h2>//Your Score</h2>
@@ -44,7 +44,7 @@ function gameOver () {
             </form>
         </div>
         <div>
-            <button id="highScore">Log High Score</button>
+            <button class = "buttons" id="highScore">Log High Score</button>
         </div>`;
     var startAgainEl = document.getElementById("startAgain");
     var highscoreEl = document.getElementById("highScore");
@@ -88,8 +88,8 @@ function displayHighScore () {
         </table> 
     </section>
     <div id="hsButtons">
-        <button id="startAgain">Start Quiz</button>
-        <button id="clearScores">Clear Scores</button>
+        <button class = "buttons" id="startAgain">Start Quiz</button>
+        <button class = "buttons" id="clearScores">Clear Scores</button>
     </div>`
     ;  
     highScoresEl.style.display = 'none';
@@ -117,7 +117,7 @@ function clearScores() {
     `<h1>High Scores</h1>
     <h2>No Scores to Display</h2>
     <section>
-        <button id="startAgain">Restart Quiz</button>
+        <button class = "buttons" id="startAgain">Restart Quiz</button>
     </section>`
     ;  
     var startAgainEl = document.getElementById("startAgain");    
@@ -223,7 +223,6 @@ function checkAnswer() {
 
 //Displays next question in quiz array
 function nextQuestion () {
-    console.log("Next Question: " + questionNo);
     if (questionNo < quizArray.length) {
         displayQuestions(questionNo);
     } else {
