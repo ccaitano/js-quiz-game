@@ -1,7 +1,7 @@
 //Declare Countdown (numbers)
 var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
-var highScoreLink = document.querySelector("#HSLink");
+var highScoresEl = document.getElementById("HSLink");
 var qandaScreenEl = document.getElementById("mainScreen");
 var secondsLeft = 60;
 var questionNo = 0;
@@ -73,6 +73,10 @@ function logHighScore (userScore) {
     highScoreInitials.push(userInitials);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     localStorage.setItem("highScoreInitials", JSON.stringify(highScoreInitials));
+    displayHighScore();
+}
+
+function displayHighScore () {
     qandaScreenEl.setAttribute('id', 'highScoreScreen');
     qandaScreenEl.innerHTML =
     `<h1>High Scores</h1>
@@ -85,10 +89,11 @@ function logHighScore (userScore) {
         </table> 
     </section>
     <section>
-        <button id="startAgain">Restart Quiz</button>
+        <button id="startAgain">Start Quiz</button>
         <button id="clearScores">Clear Scores</button>
     </section>`
     ;  
+    highScoresEl.style.display = 'none';
     for(i=0; i<highScores.length; i++) {
         var newHSRow = document.createElement("tr");
         newHSRow.innerHTML =
@@ -229,7 +234,7 @@ function startQuiz () {
     correctAnswer = 0;
     //Remove 'Begin Quiz' Button and High Score Link
     startQuizEl.style.display = 'none';
-    highScoreLink.style.display = 'none';
+    highScoresEl.style.display = 'none';
     //Create quiz screen display - Question, Answers and Timer
     qandaScreenEl.setAttribute('id', 'mainScreen2');
     qandaScreenEl.innerHTML =
@@ -258,13 +263,5 @@ function startQuiz () {
 
 }
 
-startQuizEl.addEventListener("click", startQuiz);
-
-//User picks answer
-
-//Validate user answer
-
-//Display whether answer was incorrect/correct
-
-//Add to total score
-
+startQuizEl.addEventListener("click", startQuiz);   
+highScoresEl.addEventListener("click", displayHighScore);

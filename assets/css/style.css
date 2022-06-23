@@ -174,6 +174,7 @@ input {
     border: 1px solid var(--accentGreen);
     border-collapse: collapse;
     color: var(--accentDBlue);
+    padding: 20px;
 }
 
 td {
