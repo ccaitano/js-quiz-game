@@ -1,4 +1,4 @@
-//Declare Countdown (numbers)
+//Declare Global Variables
 var timeEl = document.querySelector(".timer");
 var startQuizEl = document.querySelector("#startButton");
 var highScoresEl = document.getElementById("scoreButton");
@@ -10,7 +10,7 @@ var incorrectAnswer = 0;
 var highScores = [];
 var highScoreInitials = [];
 
-//Timer Function
+//Timer Function -- Counts down in seconds once user starts quiz
 function setTime () {
     var countdownEl = document.getElementById("countdown");
     secondsLeft = 60;
@@ -24,7 +24,7 @@ function setTime () {
     }, 1000);
 }
 
-//End Quiz Function
+//End Quiz Function -- Once timer is up or all questions are answered, displays user score
 function gameOver () {
     qandaScreenEl.setAttribute('id', 'mainScreen3');
     var userScore = (correctAnswer*10);
@@ -57,11 +57,9 @@ function gameOver () {
           
 }
 
-//Log High Score Function
+//Log High Score Function -- Saves user's score and initials to local storage
 function logHighScore (userScore) {
     var userInitials = document.querySelector("#scorerName").value;
-    // var storedHighScoreInitials = JSON.parse(localStorage.getItem("highScoreInitials"))
-    // var storedHighScores = JSON.parse(localStorage.getItem("highScores"));
     if (userInitials === "") {
         alert("Please Enter Your Initials");
         gameOver();
@@ -76,6 +74,7 @@ function logHighScore (userScore) {
     displayHighScore();
 }
 
+//Displays High Score page with saved user scores and initials
 function displayHighScore () {
     qandaScreenEl.setAttribute('id', 'highScoreScreen');
     qandaScreenEl.innerHTML =
@@ -109,6 +108,7 @@ function displayHighScore () {
     clearHSEl.addEventListener("click", clearScores);
 }
 
+//Clears high score table
 function clearScores() {
     highScores = [];
     highScoreInitials = [];
@@ -123,7 +123,7 @@ function clearScores() {
     var startAgainEl = document.getElementById("startAgain");    
     startAgainEl.addEventListener("click", startQuiz);
 }
-// Declare Questions (array)
+//Question Array for the Quiz
 var quizArray = [
     {
         id: 1,
@@ -187,6 +187,7 @@ var quizArray = [
     }
 ];
 
+//Displays questions on the screen with applicable answer buttons
 function displayQuestions (questionNo) {
     var questionEl = document.getElementById("displayQuestion");
     var answer1El = document.getElementById("answer1");
@@ -205,6 +206,7 @@ function displayQuestions (questionNo) {
    
 }
 
+//Checks if the user's answer is correct or incorrect and logs score
 function checkAnswer() {
     var selectedAnswer = this;
     if (quizArray[questionNo].answers[selectedAnswer.dataset.answer] == quizArray[questionNo].correctAnswer) {
@@ -219,7 +221,7 @@ function checkAnswer() {
     
 }
 
-
+//Displays next question in quiz array
 function nextQuestion () {
     console.log("Next Question: " + questionNo);
     if (questionNo < quizArray.length) {
@@ -229,6 +231,7 @@ function nextQuestion () {
     }
 }
 
+//Initiates the beginning of the quiz
 function startQuiz () {
     questionNo = 0;
     correctAnswer = 0;
@@ -263,5 +266,8 @@ function startQuiz () {
 
 }
 
-startQuizEl.addEventListener("click", startQuiz);   
+//Starts Quiz on Button Click
+startQuizEl.addEventListener("click", startQuiz);
+
+//Displays High Score on Button Click
 highScoresEl.addEventListener("click", displayHighScore);
