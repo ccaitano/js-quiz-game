@@ -1,12 +1,11 @@
 //Declare Global Variables
 var timeEl = document.querySelector(".timer");
-var startQuizEl = document.querySelector("#startButton");
+var startQuizEl = document.getElementById("startButton");
 var highScoresEl = document.getElementById("scoreButton");
 var qandaScreenEl = document.getElementById("mainScreen");
-var secondsLeft = 60;
+var secondsLeft = 0;
 var questionNo = 0;
 var correctAnswer = 0;
-var incorrectAnswer = 0;
 var highScores = [];
 var highScoreInitials = [];
 
@@ -17,6 +16,7 @@ function setTime () {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         countdownEl.textContent = secondsLeft;
+        // If time runs out before all questions are answered, game over
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             gameOver();
@@ -26,8 +26,10 @@ function setTime () {
 
 //End Quiz Function -- Once timer is up or all questions are answered, displays user score
 function gameOver () {
+    //Tally user's total score
+    var userScore = (correctAnswer*10); 
+    //Reset screen to display score and enter initials
     qandaScreenEl.setAttribute('id', 'mainScreen3');
-    var userScore = (correctAnswer*10);
     qandaScreenEl.innerHTML = 
         `<div>
             <button class = "buttons" id="startAgain">Restart Quiz</button>
@@ -46,9 +48,9 @@ function gameOver () {
         <div>
             <button class = "buttons" id="highScore">Log High Score</button>
         </div>`;
+    //Two buttons - one to restart quiz and one to log high score with initials
     var startAgainEl = document.getElementById("startAgain");
     var highscoreEl = document.getElementById("highScore");
-    
     startAgainEl.addEventListener("click", startQuiz);
     highscoreEl.addEventListener("click", function(event) {
         event.preventDefault();
@@ -60,11 +62,13 @@ function gameOver () {
 //Log High Score Function -- Saves user's score and initials to local storage
 function logHighScore (userScore) {
     var userInitials = document.querySelector("#scorerName").value;
+    //Validate that the user entered their initials
     if (userInitials === "") {
         alert("Please Enter Your Initials");
         gameOver();
         return;
     }
+    //Store user score and user initials in local storage and add to high score array
     localStorage.setItem("userScore", JSON.stringify(userScore));
     localStorage.setItem("userInitials", JSON.stringify(userInitials));
     highScores.push(userScore);
@@ -76,6 +80,7 @@ function logHighScore (userScore) {
 
 //Displays High Score page with saved user scores and initials
 function displayHighScore () {
+    //Sets screen to High Score page
     qandaScreenEl.setAttribute('id', 'highScoreScreen');
     qandaScreenEl.innerHTML =
     `<h1>High Scores</h1>
@@ -93,6 +98,7 @@ function displayHighScore () {
     </div>`
     ;  
     highScoresEl.style.display = 'none';
+    //Create table with a row displaying each user score and initials
     for(i=0; i<highScores.length; i++) {
         var newHSRow = document.createElement("tr");
         newHSRow.innerHTML =
@@ -101,6 +107,8 @@ function displayHighScore () {
         highScoreTable.appendChild(newHSRow);
         console.log("yes");
     }
+
+    //Two buttons - one can restart the quiz and one can clear the high scores
     var startAgainEl = document.getElementById("startAgain");    
     startAgainEl.addEventListener("click", startQuiz);
 
@@ -194,7 +202,9 @@ function displayQuestions (questionNo) {
     var answer2El = document.getElementById("answer2");
     var answer3El = document.getElementById("answer3");
     var answer4El = document.getElementById("answer4");
+    //Displays Question
     questionEl.textContent = quizArray[questionNo].question;
+    //Displays Answer Options
     answer1El.textContent = "A. " + quizArray[questionNo].answers[0];
     answer2El.textContent = "B. " + quizArray[questionNo].answers[1];
     answer3El.textContent = "C. " + quizArray[questionNo].answers[2];
@@ -213,10 +223,12 @@ function checkAnswer() {
         selectedAnswer.textContent = "CORRECT!";
         correctAnswer++;
     } else {
+        //Subtract 5 seconds from the timer if user guesses incorrectly
         secondsLeft = secondsLeft - 5;
         selectedAnswer.textContent = "INCORRECT";
     }
     questionNo++;
+    //Wait one second before displaying next question
     setTimeout(nextQuestion, 1000);
     
 }
@@ -260,9 +272,8 @@ function startQuiz () {
     ;  
     //Start Timer
     setTime();
-
+    //Display Questions
     displayQuestions(questionNo);
-
 }
 
 //Starts Quiz on Button Click
