@@ -2,7 +2,7 @@
 
 JavaScript Fundamentals Quiz Game 
 
-➡️ [DEPLOYED APPLICATION](https://sabhanson.github.io/HW3-JS-passwordgenerator/)
+➡️ [DEPLOYED APPLICATION](https://ccaitano.github.io/quiz-game/)
 
 ## **Description**
 
@@ -13,18 +13,16 @@ The `JavaScript Fundamentals Quiz` tests the players basic knowledge of JavaScri
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [Technology](#technology)
 - [Questions](#questions)
 
-## **Installation**
+## **Installation 💽**
 
 To install this application, make a `clone` of this repository to your local machine. Open the repository in your code editor of choice, and open the `index.html` file in your browser 🖥️
 
-## **Usage**
+## **Usage 📜**
 
-Visit the [deployed site](https://sabhanson.github.io/HW3-JS-passwordgenerator/), then:
+Visit the [deployed site](https://ccaitano.github.io/ccaitano/), then:
 
 - Click 'Begin Quiz' to start the JavaScript Fundamentals Quiz
 - Answer the ten presented questions with one of the four multiple choices
@@ -37,12 +35,12 @@ Visit the [deployed site](https://sabhanson.github.io/HW3-JS-passwordgenerator/)
 
 ![GIF of deployed site usage](./assets/images/quiz-game.gif)
 
-## **License**
+## **License 🎫**
 
 <p>
 MIT License
 
-Copyright &copy; 2022 Sabrina Hanson
+Copyright &copy; 2022 Cheryl Caitano
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -64,23 +62,15 @@ SOFTWARE.
 
 </p>
 
-## **Contributing**
-
-To contribute, please contact me via [Github](https://www.github.com/ccaitano) or [email](mailto:cheryl.caitano@gmail.com)
-
-## **Tests**
-
-All tests were performed and passed by myself.
-
-## **Technology**
+## **Technology 🖥️**
 
 - [JavaScript](https://www.javascript.com/) Scripting Language
 - [HTML](https://html.com/) Markup Language
 - [CSS](https://www.w3schools.com/css/) Stylesheet Language
 
-## **Questions**
+## **Questions ❓**
 
-For any questions please contact me on Gethub or through email:
+For any questions or contributions please contact me on Github or by e-mail:
 
-[Github profile](https://www.github.com/ccaitano)  
+[Github Profile](https://www.github.com/ccaitano)  
 [Email Me](mailto:cheryl.caitano@gmail.com)
