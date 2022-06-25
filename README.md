@@ -2,7 +2,7 @@
 
 JavaScript Fundamentals Quiz Game 
 
-➡️ [DEPLOYED APPLICATION](https://ccaitano.github.io/quiz-game/)
+➡️ [DEPLOYED APPLICATION](https://ccaitano.github.io/js-quiz-game/)
 
 ## **Description**
 
@@ -22,7 +22,7 @@ To install this application, make a `clone` of this repository to your local mac
 
 ## **Usage 📜**
 
-Visit the [deployed site](https://ccaitano.github.io/ccaitano/), then:
+Visit the [deployed site](https://ccaitano.github.io/js-quiz-game/), then:
 
 - Click 'Begin Quiz' to start the JavaScript Fundamentals Quiz
 - Answer the ten presented questions with one of the four multiple choices
